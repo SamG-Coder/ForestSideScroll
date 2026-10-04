@@ -1,0 +1,28 @@
+{
+  "name": "forest-side-scroll",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Secret River recreated with procedural CUDA geometry and a CUDA-authored WebGPU path tracer.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "test": "node scripts/verify.mjs",
+    "test:paint": "node scripts/verify-paint.mjs",
+    "test:temporal": "node scripts/verify-temporal.mjs",
+    "check": "node scripts/check.mjs",
+    "build:pages": "npm run build && npm run check && node scripts/package-pages.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamG-Coder/ForestSideScroll.git"
+  },
+  "homepage": "https://samg-coder.github.io/ForestSideScroll/"
+}

@@ -1,0 +1,479 @@
+{
+  "sourceSha256": "a5d1db926c0aa58097d115b172724662b1d4e79dd048502fed71f6ba4d39c6c3",
+  "batches": [
+    {
+      "referenceGeometry": true,
+      "medianMs": 52.139999985694885,
+      "p95Ms": 58.10000002384186,
+      "samples": 48,
+      "gpu": "98 %, 2827 MHz, 229.49 W"
+    },
+    {
+      "referenceGeometry": false,
+      "medianMs": 52.16500002145767,
+      "p95Ms": 61.4549999833107,
+      "samples": 48,
+      "gpu": "95 %, 2827 MHz, 221.92 W"
+    },
+    {
+      "referenceGeometry": false,
+      "medianMs": 51.25999999046326,
+      "p95Ms": 59.089999973773956,
+      "samples": 48,
+      "gpu": "98 %, 2827 MHz, 229.69 W"
+    },
+    {
+      "referenceGeometry": true,
+      "medianMs": 53.87000000476837,
+      "p95Ms": 62.00499999523163,
+      "samples": 48,
+      "gpu": "97 %, 2827 MHz, 230.07 W"
+    }
+  ],
+  "paired": {
+    "reference": {
+      "medianMs": 58.36999994516373,
+      "p95Ms": 66.51499998569489,
+      "samples": 64
+    },
+    "optimized": {
+      "medianMs": 57.11500000953674,
+      "p95Ms": 64.19499999284744,
+      "samples": 64
+    },
+    "difference": {
+      "medianMs": 2.959999978542328,
+      "p95Ms": 13.440000057220459,
+      "samples": 64
+    },
+    "pairs": [
+      {
+        "sample": 0,
+        "referenceMs": 55.714999973773956,
+        "optimizedMs": 61.22000002861023,
+        "savedMs": -5.505000054836273
+      },
+      {
+        "sample": 1,
+        "optimizedMs": 53.0100000500679,
+        "referenceMs": 53.875,
+        "savedMs": 0.8649999499320984
+      },
+      {
+        "sample": 2,
+        "referenceMs": 49.0799999833107,
+        "optimizedMs": 51.81999999284744,
+        "savedMs": -2.740000009536743
+      },
+      {
+        "sample": 3,
+        "optimizedMs": 48.72499996423721,
+        "referenceMs": 48.22000002861023,
+        "savedMs": -0.5049999356269836
+      },
+      {
+        "sample": 4,
+        "referenceMs": 48.00499999523163,
+        "optimizedMs": 39.9200000166893,
+        "savedMs": 8.084999978542328
+      },
+      {
+        "sample": 5,
+        "optimizedMs": 57.235000014305115,
+        "referenceMs": 45.860000014305115,
+        "savedMs": -11.375
+      },
+      {
+        "sample": 6,
+        "referenceMs": 54.38499999046326,
+        "optimizedMs": 50.38499999046326,
+        "savedMs": 4
+      },
+      {
+        "sample": 7,
+        "optimizedMs": 44.905000030994415,
+        "referenceMs": 56.160000026226044,
+        "savedMs": 11.254999995231628
+      },
+      {
+        "sample": 8,
+        "referenceMs": 44.52499997615814,
+        "optimizedMs": 61.56999999284744,
+        "savedMs": -17.0450000166893
+      },
+      {
+        "sample": 9,
+        "optimizedMs": 49.64000004529953,
+        "referenceMs": 52.24000000953674,
+        "savedMs": 2.599999964237213
+      },
+      {
+        "sample": 10,
+        "referenceMs": 50.60999995470047,
+        "optimizedMs": 50.464999973773956,
+        "savedMs": 0.14499998092651367
+      },
+      {
+        "sample": 11,
+        "optimizedMs": 43.544999957084656,
+        "referenceMs": 56.985000014305115,
+        "savedMs": 13.440000057220459
+      },
+      {
+        "sample": 12,
+        "referenceMs": 58.84999996423721,
+        "optimizedMs": 45.34999996423721,
+        "savedMs": 13.5
+      },
+      {
+        "sample": 13,
+        "optimizedMs": 50.564999997615814,
+        "referenceMs": 49.02499997615814,
+        "savedMs": -1.5400000214576721
+      },
+      {
+        "sample": 14,
+        "referenceMs": 51.9650000333786,
+        "optimizedMs": 48.25,
+        "savedMs": 3.715000033378601
+      },
+      {
+        "sample": 15,
+        "optimizedMs": 50.17500001192093,
+        "referenceMs": 49.93000000715256,
+        "savedMs": -0.24500000476837158
+      },
+      {
+        "sample": 16,
+        "referenceMs": 51.72999995946884,
+        "optimizedMs": 44.78999996185303,
+        "savedMs": 6.939999997615814
+      },
+      {
+        "sample": 17,
+        "optimizedMs": 40.094999969005585,
+        "referenceMs": 48.214999973773956,
+        "savedMs": 8.120000004768372
+      },
+      {
+        "sample": 18,
+        "referenceMs": 51.57499998807907,
+        "optimizedMs": 45.34500002861023,
+        "savedMs": 6.2299999594688416
+      },
+      {
+        "sample": 19,
+        "optimizedMs": 47.860000014305115,
+        "referenceMs": 51.15000003576279,
+        "savedMs": 3.290000021457672
+      },
+      {
+        "sample": 20,
+        "referenceMs": 50.1700000166893,
+        "optimizedMs": 39.54000002145767,
+        "savedMs": 10.629999995231628
+      },
+      {
+        "sample": 21,
+        "optimizedMs": 45.71000003814697,
+        "referenceMs": 50.014999985694885,
+        "savedMs": 4.304999947547913
+      },
+      {
+        "sample": 22,
+        "referenceMs": 50.9899999499321,
+        "optimizedMs": 49.25499999523163,
+        "savedMs": 1.73499995470047
+      },
+      {
+        "sample": 23,
+        "optimizedMs": 49.639999985694885,
+        "referenceMs": 53.25,
+        "savedMs": 3.6100000143051147
+      },
+      {
+        "sample": 24,
+        "referenceMs": 34.55500000715256,
+        "optimizedMs": 36.44999998807907,
+        "savedMs": -1.8949999809265137
+      },
+      {
+        "sample": 25,
+        "optimizedMs": 59.669999957084656,
+        "referenceMs": 54.60499995946884,
+        "savedMs": -5.064999997615814
+      },
+      {
+        "sample": 26,
+        "referenceMs": 60.564999997615814,
+        "optimizedMs": 61.08500003814697,
+        "savedMs": -0.5200000405311584
+      },
+      {
+        "sample": 27,
+        "optimizedMs": 60.27999997138977,
+        "referenceMs": 68.46499997377396,
+        "savedMs": 8.185000002384186
+      },
+      {
+        "sample": 28,
+        "referenceMs": 52.394999980926514,
+        "optimizedMs": 56.60499995946884,
+        "savedMs": -4.209999978542328
+      },
+      {
+        "sample": 29,
+        "optimizedMs": 60,
+        "referenceMs": 65.56000000238419,
+        "savedMs": 5.560000002384186
+      },
+      {
+        "sample": 30,
+        "referenceMs": 66.16000002622604,
+        "optimizedMs": 58.4200000166893,
+        "savedMs": 7.740000009536743
+      },
+      {
+        "sample": 31,
+        "optimizedMs": 59.13499999046326,
+        "referenceMs": 59.64500004053116,
+        "savedMs": 0.5100000500679016
+      },
+      {
+        "sample": 32,
+        "referenceMs": 55.839999973773956,
+        "optimizedMs": 65.27999997138977,
+        "savedMs": -9.439999997615814
+      },
+      {
+        "sample": 33,
+        "optimizedMs": 60.530000030994415,
+        "referenceMs": 59.76500004529953,
+        "savedMs": -0.7649999856948853
+      },
+      {
+        "sample": 34,
+        "referenceMs": 56.91499996185303,
+        "optimizedMs": 58.14999997615814,
+        "savedMs": -1.2350000143051147
+      },
+      {
+        "sample": 35,
+        "optimizedMs": 56.0349999666214,
+        "referenceMs": 54.15000003576279,
+        "savedMs": -1.884999930858612
+      },
+      {
+        "sample": 36,
+        "referenceMs": 58.45999997854233,
+        "optimizedMs": 61.61500000953674,
+        "savedMs": -3.1550000309944153
+      },
+      {
+        "sample": 37,
+        "optimizedMs": 53.69999998807907,
+        "referenceMs": 61.8649999499321,
+        "savedMs": 8.164999961853027
+      },
+      {
+        "sample": 38,
+        "referenceMs": 61.674999952316284,
+        "optimizedMs": 68.05000001192093,
+        "savedMs": -6.375000059604645
+      },
+      {
+        "sample": 39,
+        "optimizedMs": 48.080000042915344,
+        "referenceMs": 62.4650000333786,
+        "savedMs": 14.384999990463257
+      },
+      {
+        "sample": 40,
+        "referenceMs": 58.4899999499321,
+        "optimizedMs": 64.65499997138977,
+        "savedMs": -6.165000021457672
+      },
+      {
+        "sample": 41,
+        "optimizedMs": 51.07499998807907,
+        "referenceMs": 58.36999994516373,
+        "savedMs": 7.294999957084656
+      },
+      {
+        "sample": 42,
+        "referenceMs": 65.02999997138977,
+        "optimizedMs": 57.980000019073486,
+        "savedMs": 7.049999952316284
+      },
+      {
+        "sample": 43,
+        "optimizedMs": 57.99000000953674,
+        "referenceMs": 65.9650000333786,
+        "savedMs": 7.975000023841858
+      },
+      {
+        "sample": 44,
+        "referenceMs": 58.69499999284744,
+        "optimizedMs": 61.155000030994415,
+        "savedMs": -2.4600000381469727
+      },
+      {
+        "sample": 45,
+        "optimizedMs": 61.47500002384186,
+        "referenceMs": 63.360000014305115,
+        "savedMs": 1.8849999904632568
+      },
+      {
+        "sample": 46,
+        "referenceMs": 62.87999999523163,
+        "optimizedMs": 54.935000002384186,
+        "savedMs": 7.944999992847443
+      },
+      {
+        "sample": 47,
+        "optimizedMs": 58.605000019073486,
+        "referenceMs": 66.82499998807907,
+        "savedMs": 8.219999969005585
+      },
+      {
+        "sample": 48,
+        "referenceMs": 66.46000003814697,
+        "optimizedMs": 54.814999997615814,
+        "savedMs": 11.645000040531158
+      },
+      {
+        "sample": 49,
+        "optimizedMs": 60.02000004053116,
+        "referenceMs": 55.75999999046326,
+        "savedMs": -4.260000050067902
+      },
+      {
+        "sample": 50,
+        "referenceMs": 60.2150000333786,
+        "optimizedMs": 60.27000004053116,
+        "savedMs": -0.05500000715255737
+      },
+      {
+        "sample": 51,
+        "optimizedMs": 63.95999997854233,
+        "referenceMs": 62.82499998807907,
+        "savedMs": -1.1349999904632568
+      },
+      {
+        "sample": 52,
+        "referenceMs": 57.924999952316284,
+        "optimizedMs": 59.84999996423721,
+        "savedMs": -1.925000011920929
+      },
+      {
+        "sample": 53,
+        "optimizedMs": 64.19499999284744,
+        "referenceMs": 58.935000002384186,
+        "savedMs": -5.259999990463257
+      },
+      {
+        "sample": 54,
+        "referenceMs": 65.73500001430511,
+        "optimizedMs": 57.02499997615814,
+        "savedMs": 8.710000038146973
+      },
+      {
+        "sample": 55,
+        "optimizedMs": 60.01500004529953,
+        "referenceMs": 64.76999998092651,
+        "savedMs": 4.754999935626984
+      },
+      {
+        "sample": 56,
+        "referenceMs": 60.97499996423721,
+        "optimizedMs": 53.0349999666214,
+        "savedMs": 7.939999997615814
+      },
+      {
+        "sample": 57,
+        "optimizedMs": 59.799999952316284,
+        "referenceMs": 64.34999996423721,
+        "savedMs": 4.550000011920929
+      },
+      {
+        "sample": 58,
+        "referenceMs": 63.19499999284744,
+        "optimizedMs": 60.235000014305115,
+        "savedMs": 2.959999978542328
+      },
+      {
+        "sample": 59,
+        "optimizedMs": 54.714999973773956,
+        "referenceMs": 61.360000014305115,
+        "savedMs": 6.6450000405311584
+      },
+      {
+        "sample": 60,
+        "referenceMs": 66.51499998569489,
+        "optimizedMs": 57.11500000953674,
+        "savedMs": 9.399999976158142
+      },
+      {
+        "sample": 61,
+        "optimizedMs": 63.014999985694885,
+        "referenceMs": 60.16500002145767,
+        "savedMs": -2.849999964237213
+      },
+      {
+        "sample": 62,
+        "referenceMs": 71.52500003576279,
+        "optimizedMs": 57.91500002145767,
+        "savedMs": 13.610000014305115
+      },
+      {
+        "sample": 63,
+        "optimizedMs": 61.96000003814697,
+        "referenceMs": 57.72000002861023,
+        "savedMs": -4.240000009536743
+      }
+    ]
+  },
+  "boundary": "ABBA order, one browser/adapter, identical scene, 960x600 and four bounces. Both pipelines prewarmed with 48 frames, then 8 warm and 48 timed samples per batch. Also 64 interleaved pairs of identical random samples, alternating which variant goes first. Includes submission to queue completion; excludes simulation, RAF and compositor. Reference recomputes transforms, retests BVH child bounds, and uses 8x8 trace workgroups. Production caches transforms in spatial order, skips redundant bounds tests, and uses 8x4 trace workgroups. Rock planes and the original untiled filter are shared by both variants.",
+  "equivalence": [
+    {
+      "location": 0,
+      "time": 0,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    },
+    {
+      "location": 0,
+      "time": 0.73,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    },
+    {
+      "location": 0,
+      "time": 5.8,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    },
+    {
+      "location": 1,
+      "time": 5.8,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    }
+  ]
+}

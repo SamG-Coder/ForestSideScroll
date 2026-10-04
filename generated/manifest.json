@@ -1,0 +1,324 @@
+{
+  "compilerVersion": "0.1.1",
+  "compilerOrigin": "SamG-Coder/cuda-webshader",
+  "compilerRevision": "ef46ff1bf02a306bad94ddc18286d25d3d902c14",
+  "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+  "files": [
+    "common",
+    "game",
+    "generate",
+    "materials",
+    "trace",
+    "render",
+    "paint"
+  ],
+  "entries": [
+    {
+      "entry": "initGame",
+      "workgroupSize": [
+        1,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "3a62c0e682f0a678e0f49a1c1cce0c16cf1e96d70a9af7e280cc27414dc415b0",
+      "wgslSha256": "5a37e243c991af2e489e535efeae27ad42908f6c3a282abcc7f391cfde6ab35d",
+      "bindings": [
+        "state"
+      ]
+    },
+    {
+      "entry": "stepGame",
+      "workgroupSize": [
+        1,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "c4a9e7f7c51a05bbadcbcbc355486cc31ef0ca15c14fdafd153d2c46d3ccfbca",
+      "wgslSha256": "a5dbb7ac044b91def59421cfb60608a1d688a32d03dcafcf239c99d62e2adba9",
+      "bindings": [
+        "state"
+      ]
+    },
+    {
+      "entry": "generateScene",
+      "workgroupSize": [
+        64,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "b4fce2ae59c7f489c5cc5d99ef1c631ecaec50bdcf347c17058545885589e10f",
+      "wgslSha256": "5f694d7bb5fbc3b5bac25344d03f534fc16405bee7a3d813540ba66f358469f7",
+      "bindings": [
+        "objects"
+      ]
+    },
+    {
+      "entry": "prepareRayGeometry",
+      "workgroupSize": [
+        128,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "067c2e9d75a863b9cbd772ab4fcd7d4e65276e68db2a58f40312266e17502e8b",
+      "wgslSha256": "6882b5b5ac7622302157067328739cadf976ccbf8503e9cd04ecfd4ab5399a25",
+      "bindings": [
+        "objects",
+        "order",
+        "rayGeometry"
+      ]
+    },
+    {
+      "entry": "prepareRockPlanes",
+      "workgroupSize": [
+        64,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "f3072f3da15f2f11d6c7b9e71f83557c02178fb75e1ec5571e3c7889b504ce67",
+      "wgslSha256": "84650b415ad90990b7ae4a22ded051a3ebe81221346a9a375b289ef3afe08bd0",
+      "bindings": [
+        "objects",
+        "rockPlanes"
+      ]
+    },
+    {
+      "entry": "updateLeafMotion",
+      "workgroupSize": [
+        128,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "2c792ca8c880dc98b8350525d4831310d3e76828a87e09289ba999c7d404bf81",
+      "wgslSha256": "c55161695926cc9c46f074122d94e1b0e42d39541d3a7335e0ddbbe60018ea98",
+      "bindings": [
+        "objects",
+        "order",
+        "rayGeometry"
+      ]
+    },
+    {
+      "entry": "spatialKeys",
+      "workgroupSize": [
+        128,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "2520db454bdfe40a3229df25d68598039779770ccfc89f78744d6494b2159389",
+      "wgslSha256": "0f52e2b5c817826cccb0a9b7261d565a3434d95506150b4e73055b47dde86073",
+      "bindings": [
+        "objects",
+        "keys",
+        "order"
+      ]
+    },
+    {
+      "entry": "buildLeaves",
+      "workgroupSize": [
+        128,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "f45a5684a52662425351b8fd8ed469cf70022e199f63e734da46388e09958ca5",
+      "wgslSha256": "d5b6c484509dbe43b32e3f9f7bf0bf528a333b1ab58019f68a11aba48c11d35e",
+      "bindings": [
+        "objects",
+        "order",
+        "bounds"
+      ]
+    },
+    {
+      "entry": "buildLevel",
+      "workgroupSize": [
+        128,
+        1,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "0b6347bb302240a6bcf5768cd9116b57571c9efbcb357c51400f919eec4e7dd5",
+      "wgslSha256": "aae45f716cfac27e825e2cacf2dd4bc0341688b1bc0c8d9df8120fc934a3b27e",
+      "bindings": [
+        "bounds"
+      ]
+    },
+    {
+      "entry": "bakeTerrain",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "121eb0e46cc1fbadca2b9c11bf8ba360ac59c9f434f395633ba93b66fe62f726",
+      "wgslSha256": "789ac6cef4e9402a0037a9584d56cdfe6b648f2a9dd910124a86e6db27a7d924",
+      "bindings": [
+        "terrain"
+      ]
+    },
+    {
+      "entry": "bakeMaterials",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "177965b582cad2ce98a657aef64259c43be6bfe9d8c821fc27c3468c47c8d0b4",
+      "wgslSha256": "7aea9f44dbbbfee6813f646d37b31f83c36a9a72b770b83a52de2430c5dafbc0",
+      "bindings": [
+        "atlas"
+      ]
+    },
+    {
+      "entry": "materialMip",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "f65d86c67a16644fe94951bb8ab4f5781461324d937e2d698b8d159802188852",
+      "wgslSha256": "a49636e8e9df234f91771e71c686a57251c890f3e88f0bf02fa12bcf9f22e6b3",
+      "bindings": [
+        "atlas"
+      ]
+    },
+    {
+      "entry": "tracePaths",
+      "workgroupSize": [
+        8,
+        4,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "6891e36d10b735c7ce178880ae2d3f55b2625511aa94d6dccc25128da2f552bd",
+      "wgslSha256": "08237fa2542acf3928a10221fe8a8d0e824dbcca0ee0fa2cb88ba0d31bc87b81",
+      "bindings": [
+        "objects",
+        "bounds",
+        "rayGeometry",
+        "rockPlanes",
+        "terrain",
+        "atlas",
+        "state",
+        "oldGuide",
+        "oldNormals",
+        "oldHistory",
+        "radiance",
+        "guide",
+        "normals",
+        "albedo"
+      ]
+    },
+    {
+      "entry": "traceReference",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "6acca5c4356613053314c0cdadcf43c196039898dd7d24099f210b9ce53aedd6",
+      "sha256": "a4ee83a1fe8db33bd318b3b4658adcd10fcea0cae385205e9d2452c2557ebcee",
+      "wgslSha256": "97a7217d17ec80d8b61bb8688cfb4db0140e5d0aece23f3a162b37e634a7bdda",
+      "bindings": [
+        "objects",
+        "bounds",
+        "rayGeometry",
+        "rockPlanes",
+        "terrain",
+        "atlas",
+        "state",
+        "oldGuide",
+        "oldNormals",
+        "oldHistory",
+        "radiance",
+        "guide",
+        "normals",
+        "albedo"
+      ]
+    },
+    {
+      "entry": "accumulate",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "5d2dae7b77b0258506a925e5f0df486e15439c4e866a1618a6da30cee5feee76",
+      "wgslSha256": "441518e1140892964d188a662f2c7d68b983c0d4fa985f24733c11906df4fbc1",
+      "bindings": [
+        "radiance",
+        "guide",
+        "normals",
+        "oldGuide",
+        "oldNormals",
+        "oldHistory",
+        "history",
+        "state"
+      ]
+    },
+    {
+      "entry": "filterImage",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "4b4b5193113af94dce0145bfc8a2e0410ac096f34a3956e74c4c399be4da0143",
+      "wgslSha256": "39f3426257fabdff76ddcf3cdb961360974498fac230127bf3dd4e5267eca1c6",
+      "bindings": [
+        "source",
+        "guide",
+        "normals",
+        "albedo",
+        "oldImage",
+        "oldGuide",
+        "oldNormals",
+        "oldCoverage",
+        "state",
+        "filtered",
+        "coverage"
+      ]
+    },
+    {
+      "entry": "resolveImage",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "097caa38974b912137f62fabd0a0830cb96f2c829db194e6e3245137c18cf521",
+      "wgslSha256": "402372280ded8ef79db308dddd4ef7be45d24ff020e3b186e8823496268193cd",
+      "bindings": [
+        "source",
+        "pixels"
+      ]
+    },
+    {
+      "entry": "paintScene",
+      "workgroupSize": [
+        8,
+        8,
+        1
+      ],
+      "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+      "sha256": "f20e233aeec9b7403c4dbd198a009f840c5a17fa1b429315cd0ae01fc718036e",
+      "wgslSha256": "ff41549a5ed065e9721610f286814f8f1882ea82a2afd17038da3253e86948c9",
+      "bindings": [
+        "source",
+        "coverage",
+        "pixels"
+      ]
+    }
+  ]
+}

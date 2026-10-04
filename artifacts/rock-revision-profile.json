@@ -1,0 +1,60 @@
+{
+  "sourceSha256": "a5d1db926c0aa58097d115b172724662b1d4e79dd048502fed71f6ba4d39c6c3",
+  "gpuKernels": {
+    "optimized": {
+      "tracePaths": {
+        "medianMs": 48.755936,
+        "p95Ms": 51.341024,
+        "samples": 16
+      },
+      "accumulate": {
+        "medianMs": 0.069248,
+        "p95Ms": 0.09552,
+        "samples": 16
+      },
+      "filterImage step 1": {
+        "medianMs": 1.039168,
+        "p95Ms": 3.941344,
+        "samples": 16
+      },
+      "filterImage step 2": {
+        "medianMs": 0.902816,
+        "p95Ms": 0.92784,
+        "samples": 16
+      },
+      "resolveImage": {
+        "medianMs": 0.006432,
+        "p95Ms": 0.013696,
+        "samples": 16
+      }
+    },
+    "reference": {
+      "traceReference": {
+        "medianMs": 50.59024,
+        "p95Ms": 60.154464,
+        "samples": 16
+      },
+      "accumulate": {
+        "medianMs": 0.067904,
+        "p95Ms": 3.264864,
+        "samples": 16
+      },
+      "filterImage step 1": {
+        "medianMs": 1.015328,
+        "p95Ms": 6.679296,
+        "samples": 16
+      },
+      "filterImage step 2": {
+        "medianMs": 0.898688,
+        "p95Ms": 0.921568,
+        "samples": 16
+      },
+      "resolveImage": {
+        "medianMs": 0.006432,
+        "p95Ms": 0.014304,
+        "samples": 16
+      }
+    }
+  },
+  "boundary": "GPU timestamp queries, 16 samples per kernel, separate passes at 960x600 and four bounces. Excludes browser scheduling and presentation."
+}

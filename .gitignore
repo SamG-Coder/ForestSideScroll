@@ -1,0 +1,13 @@
+node_modules/
+dist/
+references/
+artifacts/*
+!artifacts/before-jitter.json
+!artifacts/after-jitter.json
+!artifacts/validation.json
+!artifacts/scene-paint-validation.json
+!artifacts/rock-revision-comparison.json
+!artifacts/rock-revision-profile.json
+*.log
+.env
+.env.*

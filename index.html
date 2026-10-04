@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#18241f"><title>Secret River</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2318241f'/%3E%3Cpath d='M15 47Q31 29 49 17M24 38Q13 13 40 21M32 30Q54 29 46 10' fill='none' stroke='%23d1c6a1' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <canvas id="scene" aria-label="Side-view Australian forest and riverbank" tabindex="0"></canvas>
+  <div id="vignette" aria-hidden="true"></div>
+  <header>
+    <a class="wordmark" href="./" aria-label="Secret River home">SECRET RIVER<span class="line"></span></a>
+    <div class="header-right"><span id="time-label">LATE AFTERNOON</span><button id="settings-button" class="icon-button" aria-label="View settings" title="View settings">☷</button></div>
+  </header>
+  <main id="menu">
+    <div class="eyebrow">AN AUSTRALIAN RIVERBANK</div>
+    <h1>Secret River</h1>
+    <p class="intro">Pale gums. Quiet water.<br>A path through sandstone country.</p>
+    <div class="menu-actions"><button id="play" class="primary" disabled>Begin journey <span>→</span></button><button id="demo" class="secondary" disabled>Explore the riverbank</button></div>
+    <div class="menu-note">Two riverbanks. Take your time.</div>
+  </main>
+  <section id="hud" hidden aria-label="Journey progress">
+    <div class="eyebrow" id="region">HAWKESBURY RIVER</div>
+    <h2 id="location">Wisemans Ferry</h2>
+    <div class="rule"></div>
+    <p id="objective">Follow the bank to the eastern bend.</p>
+    <div id="progress-track"><i id="progress-fill"></i></div>
+    <span id="distance">76 m to the bend</span>
+  </section>
+  <div id="interact" hidden><kbd>E</kbd><span>Continue into First Branch</span></div>
+  <div id="photo-banner" hidden>STILL VIEW <span>The image refines, then holds</span><button id="resume">Resume exploring</button></div>
+  <aside id="settings" hidden>
+    <div class="panel-title"><h2>View settings</h2><button id="close-settings" aria-label="Close settings">×</button></div>
+    <label>Image quality<select id="quality"><option value="768">Performance · 768 px</option><option value="960" selected>Balanced · 960 px</option><option value="1280">High · 1280 px</option><option value="1920">Ultra · 1920 px</option></select></label>
+    <label>Light bounces<select id="bounces"><option value="2">2 · Faster</option><option value="4" selected>4 · Detailed light</option><option value="6">6 · Deeper reflections</option></select></label>
+    <label>Time of day<select id="hour"><option value="9">Morning</option><option value="12">Midday</option><option value="15.4" selected>Late afternoon</option><option value="17.6">Sunset</option><option value="21">Night</option></select></label>
+    <label class="check"><input id="day-cycle" type="checkbox" checked> Let the day pass</label>
+    <label>Exposure<input id="exposure" type="range" min="0.6" max="2.4" value="1.25" step="0.05"></label>
+    <div class="paint-style">
+      <label class="check"><input id="oil-paint" type="checkbox"> Oil painting</label>
+      <p class="setting-note">Layered brushwork across the whole scene.</p>
+      <label class="paint-strength">Paint strength <output id="paint-value" for="paint-strength">75%</output><input id="paint-strength" type="range" min="0" max="1" value="0.75" step="0.05" disabled></label>
+      <fieldset id="paint-layers" disabled>
+        <legend>Paint depth by layer</legend>
+        <label class="paint-strength">1 · Trees &amp; dirt <output id="depth-trees-value" for="depth-trees">70%</output><input id="depth-trees" aria-label="Trees and dirt paint depth" type="range" min="0" max="1" value="0.70" step="0.05"></label>
+        <label class="paint-strength">2 · Rocks <output id="depth-rocks-value" for="depth-rocks">50%</output><input id="depth-rocks" aria-label="Rocks paint depth" type="range" min="0" max="1" value="0.50" step="0.05"></label>
+        <label class="paint-strength">3 · Leaves &amp; ferns <output id="depth-foliage-value" for="depth-foliage">35%</output><input id="depth-foliage" aria-label="Leaves and ferns paint depth" type="range" min="0" max="1" value="0.35" step="0.05"></label>
+        <label class="paint-strength">4 · Water <output id="depth-water-value" for="depth-water">60%</output><input id="depth-water" aria-label="Water paint depth" type="range" min="0" max="1" value="0.60" step="0.05"></label>
+        <p class="setting-note">Deeper paint makes broader, stronger strokes. Set a layer to zero to keep its original detail.</p>
+      </fieldset>
+    </div>
+    <button id="photo" class="panel-button">Pause for a still view <kbd>P</kbd></button>
+    <button id="capture" class="panel-button">Save image <span>↓</span></button>
+    <div class="panel-foot">A fixed side view. Every branch, leaf and reflection is rendered from the scene.</div>
+  </aside>
+  <footer><div id="controls"><span><kbd>A</kbd><kbd>D</kbd> explore</span><span><kbd>W</kbd><kbd>S</kbd> move along bank</span><span><kbd>SHIFT</kbd> faster</span><span><kbd>P</kbd> still view</span><span><kbd>ESC</kbd> menu</span></div><span id="status" role="status">Preparing the forest…</span></footer>
+  <div id="loading"><span class="loading-line"></span><span id="loading-text">Growing the riverbank</span></div>
+  <div id="error" hidden role="alert"></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

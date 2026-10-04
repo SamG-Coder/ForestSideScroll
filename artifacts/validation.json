@@ -1,0 +1,440 @@
+{
+  "checks": [
+    "All CUDA artifacts match disk, manifest and HTTP; browser GPU initialization succeeds",
+    "Actual browser keyboard input moves the fixed side-view camera",
+    "524288 procedural primitives are finite; all BVH parent bounds contain their children",
+    "Spatial BVH contains each primitive once; no person; fern leaflets and varied shallow/deep riverbed are present",
+    "Four rock shape families have valid cached fracture planes inside conservative bounds and finite ray transforms",
+    "Forest seed is deterministic and a different seed changes geometry",
+    "Cached geometry and traversal exactly match the uncached reference at three wind times, both banks and partial workgroup edges",
+    "Crossing remains locked before the Broad Reach survey",
+    "Walking the first bank completes its survey; E crosses to First Branch at the original spawn",
+    "Return crossing and second objective reject incomplete prerequisites",
+    "Full two-location journey completes and returns to Broad Reach",
+    "Bank boundaries clamp correctly and still view freezes movement and day clock",
+    "Completed journey serializes as valid local saved progress",
+    "Additional traced bounces increase indirect light and reflected/refracted water radiance",
+    "Lighting reuse matches fresh tracing within measured image error, expires after one frame, excludes water and resets on light changes",
+    "Converged stills submit no new paths; exposure only resolves pixels; relighting invalidates accumulation while keeping material/terrain caches",
+    "Day, sunset and night render finite HDR values; night is measurably darker",
+    "Both locations render finite images with distinct seeded geometry",
+    "Reload and menu preserve progress; still view, quality selection and PNG export work through the UI",
+    "No page errors, GPU validation errors, or failed HTTP assets"
+  ],
+  "sourceSha256": "642fe82d474dbae6db611e900c2b3efba09de610c0f1805ac102fb38c512d80e",
+  "geometry": {
+    "hash": "0b97270de5eede53f9f50fef584a7a02024556bd1fa4959fba8cf5e84fcbdeb6",
+    "finite": true,
+    "invalidRadii": 0,
+    "invalidBounds": 0,
+    "objects": 524288
+  },
+  "branch": {
+    "hash": "b8d7793311271dda715ac0e48ad2a86cf23725ab27cfe15b3bae97bf38e14b6b",
+    "finite": true,
+    "invalidRadii": 0,
+    "invalidBounds": 0,
+    "objects": 524288
+  },
+  "bank": {
+    "finite": true,
+    "invalidOrder": 0,
+    "unsorted": 0,
+    "ferns": 30720,
+    "rocks": 2048,
+    "actorMaterials": 0,
+    "terrainSize": [
+      4096,
+      2048
+    ],
+    "materialSize": [
+      2048,
+      2048
+    ],
+    "mipLevels": 12,
+    "depthMin": 0.00682358801364899,
+    "depthMax": 1.4328271484375,
+    "shallowSamples": 67,
+    "deepSamples": 15,
+    "terrainHash": "5219604b7fecda0018c9b051381bb958ba3c9c22dde5b6da048212ec31120acf",
+    "atlasHash": "3f95bae5b41250fcd5fd8a70db6a0974673c0f974de1b6f28de2bdbd498fecbd"
+  },
+  "rocks": {
+    "forms": [
+      524,
+      514,
+      509,
+      501
+    ],
+    "planesPerRock": 104,
+    "invalidPlanes": 0,
+    "invalidTransforms": 0,
+    "maxAxisExtent": 0.9516534805297852,
+    "axisPlanes": 12288,
+    "minAspect": 0.8820175657815023,
+    "maxAspect": 8.79006713143655,
+    "cacheBytes": 36962304
+  },
+  "geometryOracle": [
+    {
+      "location": 0,
+      "time": 0,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    },
+    {
+      "location": 0,
+      "time": 0.73,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    },
+    {
+      "location": 0,
+      "time": 5.8,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    },
+    {
+      "location": 1,
+      "time": 5.8,
+      "pixels": 371712,
+      "mismatchedPixels": 0,
+      "mismatchedHits": 0,
+      "maxPositionError": 0,
+      "maxRadianceError": 0,
+      "nonFinite": 0
+    }
+  ],
+  "cacheComparison": {
+    "mae8bit": 0.790380859375,
+    "rms8bit": 1.8663031330036552,
+    "reused": 57685,
+    "water": 103078,
+    "waterReused": 0,
+    "maxAge": 1,
+    "pixels": 368640
+  },
+  "stillCache": {
+    "before": {
+      "tracedFrames": 680,
+      "reusedFrames": 0,
+      "terrainBakes": 5,
+      "materialBakes": 1,
+      "geometryBakes": 8,
+      "rockBakes": 8,
+      "motionUpdates": 22,
+      "resolvePasses": 680,
+      "paintPasses": 0,
+      "samples": 128,
+      "limit": 128
+    },
+    "after": {
+      "tracedFrames": 680,
+      "reusedFrames": 12,
+      "terrainBakes": 5,
+      "materialBakes": 1,
+      "geometryBakes": 8,
+      "rockBakes": 8,
+      "motionUpdates": 22,
+      "resolvePasses": 680,
+      "paintPasses": 0,
+      "samples": 128,
+      "limit": 128
+    },
+    "exposed": {
+      "tracedFrames": 680,
+      "reusedFrames": 13,
+      "terrainBakes": 5,
+      "materialBakes": 1,
+      "geometryBakes": 8,
+      "rockBakes": 8,
+      "motionUpdates": 22,
+      "resolvePasses": 681,
+      "paintPasses": 0,
+      "samples": 128,
+      "limit": 128
+    },
+    "relit": {
+      "tracedFrames": 681,
+      "reusedFrames": 13,
+      "terrainBakes": 5,
+      "materialBakes": 1,
+      "geometryBakes": 8,
+      "rockBakes": 8,
+      "motionUpdates": 22,
+      "resolvePasses": 682,
+      "paintPasses": 0,
+      "samples": 1,
+      "limit": 128
+    },
+    "identical": true,
+    "exposureChanged": true,
+    "idleTimes": [
+      0.025000035762786865,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.004999995231628418,
+      0,
+      0,
+      0,
+      0.004999995231628418,
+      0
+    ]
+  },
+  "timings": {
+    "768": {
+      "medianMs": 44.99000000953674,
+      "p95Ms": 55.060000002384186,
+      "samples": 20
+    },
+    "960": {
+      "medianMs": 63.08499997854233,
+      "p95Ms": 76.09499996900558,
+      "samples": 20
+    },
+    "1280": {
+      "medianMs": 113.61500000953674,
+      "p95Ms": 129.38999998569489,
+      "samples": 20
+    },
+    "live": {
+      "medianMs": 76.70999997854233,
+      "p95Ms": 85.2150000333786,
+      "samples": 12
+    }
+  },
+  "timingBoundary": "Headless Edge on the reported adapter. Resolution timings include GPU submission through queue completion and exclude simulation, requestAnimationFrame and compositor. Live timing includes simulation and command completion but excludes requestAnimationFrame idle gaps.",
+  "lightTransport": {
+    "direct": {
+      "mean": 0.0732820883046515,
+      "waterMean": 0.000007075730453261628,
+      "waterPixels": 103096
+    },
+    "indirect": {
+      "mean": 0.11871449996669223,
+      "waterMean": 0.08573032236231484,
+      "waterPixels": 103096
+    }
+  },
+  "broadSummary": {
+    "finite": true,
+    "min": 0,
+    "max": 1.5377085208892822,
+    "mean": 0.10168863620359643,
+    "state": [
+      -4,
+      1.900221586227417,
+      19.81999969482422,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      16.200000762939453,
+      -4,
+      19.81999969482422,
+      -4,
+      19.81999969482422,
+      0,
+      0,
+      0,
+      0,
+      76,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "runtime": {
+      "pipelineCompiles": 20,
+      "pipelineCacheHits": 0,
+      "bindGroupsCreated": 6079,
+      "submissions": 2317,
+      "dispatches": 7591,
+      "uniformBytesUploaded": 1401216,
+      "dataBytesUploaded": 1152,
+      "readbackBytes": 857816272
+    }
+  },
+  "branchSummary": {
+    "finite": true,
+    "min": 0,
+    "max": 1.7841942310333252,
+    "mean": 0.08638309447227265,
+    "state": [
+      0,
+      1.787501573562622,
+      20.700000762939453,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      16.200000762939453,
+      0,
+      20.700000762939453,
+      0,
+      20.700000762939453,
+      0,
+      0,
+      0,
+      0,
+      70.00215911865234,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "runtime": {
+      "pipelineCompiles": 20,
+      "pipelineCacheHits": 0,
+      "bindGroupsCreated": 6993,
+      "submissions": 2501,
+      "dispatches": 8694,
+      "uniformBytesUploaded": 1638464,
+      "dataBytesUploaded": 1280,
+      "readbackBytes": 911065296
+    }
+  },
+  "night": {
+    "finite": true,
+    "min": 0,
+    "max": 0.10677847266197205,
+    "mean": 0.00812098721318116,
+    "state": [
+      -4,
+      1.900221586227417,
+      19.81999969482422,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      21,
+      -4,
+      19.81999969482422,
+      -4,
+      19.81999969482422,
+      0,
+      0,
+      0,
+      0,
+      76,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "runtime": {
+      "pipelineCompiles": 20,
+      "pipelineCacheHits": 0,
+      "bindGroupsCreated": 6481,
+      "submissions": 2399,
+      "dispatches": 7993,
+      "uniformBytesUploaded": 1484480,
+      "dataBytesUploaded": 1152,
+      "readbackBytes": 874200656
+    }
+  },
+  "errors": [],
+  "failedRequests": [],
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "device": "",
+    "description": "",
+    "features": [
+      "core-features-and-limits",
+      "subgroup-size-control",
+      "shader-f16",
+      "float32-filterable",
+      "subgroups",
+      "timestamp-query"
+    ],
+    "timestampQuery": true,
+    "limits": {
+      "maxComputeInvocationsPerWorkgroup": 1024,
+      "maxComputeWorkgroupStorageSize": 16384,
+      "maxStorageBufferBindingSize": 268435456
+    }
+  },
+  "captures": {
+    "broadReach": {
+      "width": 1920,
+      "height": 1200,
+      "passes": 96,
+      "medianMs": 285.6799999475479,
+      "p95Ms": 310.2849999666214,
+      "samples": 96
+    },
+    "sunset": {
+      "width": 1280,
+      "height": 800,
+      "passes": 48,
+      "medianMs": 140.10000002384186,
+      "p95Ms": 164.95999997854233,
+      "samples": 48
+    },
+    "night": {
+      "width": 1280,
+      "height": 800,
+      "passes": 32,
+      "medianMs": 122.16000002622604,
+      "p95Ms": 130.5349999666214,
+      "samples": 32
+    },
+    "firstBranch": {
+      "width": 1920,
+      "height": 1200,
+      "passes": 96,
+      "medianMs": 244.46999996900558,
+      "p95Ms": 270.86500000953674,
+      "samples": 96
+    }
+  }
+}

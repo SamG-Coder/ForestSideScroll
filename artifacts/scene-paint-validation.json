@@ -1,0 +1,327 @@
+{
+  "sourceSha256": "642fe82d474dbae6db611e900c2b3efba09de610c0f1805ac102fb38c512d80e",
+  "checks": [
+    "Geometry identifies all visible material groups; default effect is off",
+    "Painting changes sky, water, soil, trunks, rocks and all vegetation; zero strength restores exact original pixels",
+    "Toggling/adjusting a converged still runs only the final resolve; unchanged painted stills submit no new GPU passes; disabling restores exact pixels",
+    "Each layer depth changes only its own stable coverage without retracing; all-zero depths restore exact pixels",
+    "Painting works on the other bank with a partial bottom workgroup",
+    "PNG export contains the exact painted image",
+    "The toggle, strength and four layer depths survive a reload",
+    "No browser errors, GPU validation errors, or failed assets"
+  ],
+  "mask": {
+    "counts": {
+      "1": 126963,
+      "2": 141878,
+      "3": 6724,
+      "4": 6615,
+      "8": 4514,
+      "-9": 36753,
+      "-1": 91488,
+      "-2": 161065
+    },
+    "wrongTags": 0
+  },
+  "comparisons": [
+    {
+      "strength": 0.35,
+      "changed": {
+        "1": 123015,
+        "2": 117994,
+        "3": 6287,
+        "4": 5330,
+        "8": 4316,
+        "-9": 22750,
+        "-1": 82262,
+        "-2": 140860
+      },
+      "outside": 374217,
+      "alphaErrors": 0,
+      "meanFoliageDifference": 1.1366523855551782,
+      "hdrUnchanged": true,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 1,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 131,
+        "paintPasses": 1,
+        "samples": 128,
+        "limit": 128
+      },
+      "originalCache": {
+        "tracedFrames": 130,
+        "reusedFrames": 0,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 130,
+        "paintPasses": 0,
+        "samples": 128,
+        "limit": 128
+      }
+    },
+    {
+      "strength": 0.75,
+      "changed": {
+        "1": 126160,
+        "2": 133224,
+        "3": 6618,
+        "4": 6120,
+        "8": 4480,
+        "-9": 28126,
+        "-1": 88678,
+        "-2": 156151
+      },
+      "outside": 405235,
+      "alphaErrors": 0,
+      "meanFoliageDifference": 2.413686355442932,
+      "hdrUnchanged": true,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 2,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 132,
+        "paintPasses": 2,
+        "samples": 128,
+        "limit": 128
+      },
+      "originalCache": {
+        "tracedFrames": 130,
+        "reusedFrames": 0,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 130,
+        "paintPasses": 0,
+        "samples": 128,
+        "limit": 128
+      }
+    },
+    {
+      "strength": 1,
+      "changed": {
+        "1": 126521,
+        "2": 136389,
+        "3": 6671,
+        "4": 6314,
+        "8": 4499,
+        "-9": 29776,
+        "-1": 89847,
+        "-2": 158560
+      },
+      "outside": 411018,
+      "alphaErrors": 0,
+      "meanFoliageDifference": 3.2012178130741833,
+      "hdrUnchanged": true,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 3,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 133,
+        "paintPasses": 3,
+        "samples": 128,
+        "limit": 128
+      },
+      "originalCache": {
+        "tracedFrames": 130,
+        "reusedFrames": 0,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 130,
+        "paintPasses": 0,
+        "samples": 128,
+        "limit": 128
+      }
+    },
+    {
+      "strength": 0,
+      "changed": {},
+      "outside": 0,
+      "alphaErrors": 0,
+      "meanFoliageDifference": 0,
+      "hdrUnchanged": true,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 4,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 134,
+        "paintPasses": 3,
+        "samples": 128,
+        "limit": 128
+      },
+      "originalCache": {
+        "tracedFrames": 130,
+        "reusedFrames": 0,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 130,
+        "paintPasses": 0,
+        "samples": 128,
+        "limit": 128
+      }
+    }
+  ],
+  "held": {
+    "before": {
+      "tracedFrames": 130,
+      "reusedFrames": 5,
+      "terrainBakes": 1,
+      "materialBakes": 1,
+      "geometryBakes": 1,
+      "rockBakes": 1,
+      "motionUpdates": 1,
+      "resolvePasses": 135,
+      "paintPasses": 4,
+      "samples": 128,
+      "limit": 128
+    },
+    "after": {
+      "tracedFrames": 130,
+      "reusedFrames": 13,
+      "terrainBakes": 1,
+      "materialBakes": 1,
+      "geometryBakes": 1,
+      "rockBakes": 1,
+      "motionUpdates": 1,
+      "resolvePasses": 135,
+      "paintPasses": 4,
+      "samples": 128,
+      "limit": 128
+    }
+  },
+  "layerResults": [
+    {
+      "layer": "trees",
+      "invalid": 0,
+      "changed": 332225,
+      "outside": 0,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 16,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 138,
+        "paintPasses": 6,
+        "samples": 128,
+        "limit": 128
+      }
+    },
+    {
+      "layer": "rocks",
+      "invalid": 0,
+      "changed": 9070,
+      "outside": 0,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 17,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 139,
+        "paintPasses": 7,
+        "samples": 128,
+        "limit": 128
+      }
+    },
+    {
+      "layer": "foliage",
+      "invalid": 0,
+      "changed": 208417,
+      "outside": 0,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 18,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 140,
+        "paintPasses": 8,
+        "samples": 128,
+        "limit": 128
+      }
+    },
+    {
+      "layer": "water",
+      "invalid": 0,
+      "changed": 160340,
+      "outside": 0,
+      "cache": {
+        "tracedFrames": 130,
+        "reusedFrames": 19,
+        "terrainBakes": 1,
+        "materialBakes": 1,
+        "geometryBakes": 1,
+        "rockBakes": 1,
+        "motionUpdates": 1,
+        "resolvePasses": 141,
+        "paintPasses": 9,
+        "samples": 128,
+        "limit": 128
+      }
+    }
+  ],
+  "gpuKernels": {
+    "tracePaths": {
+      "medianMs": 35.432832,
+      "p95Ms": 38.5064,
+      "samples": 16
+    },
+    "accumulate": {
+      "medianMs": 0.065216,
+      "p95Ms": 0.06752,
+      "samples": 16
+    },
+    "filterImage step 1": {
+      "medianMs": 1.699712,
+      "p95Ms": 2.443744,
+      "samples": 16
+    },
+    "filterImage step 2": {
+      "medianMs": 1.585824,
+      "p95Ms": 2.32656,
+      "samples": 16
+    },
+    "paintScene": {
+      "medianMs": 0.190272,
+      "p95Ms": 0.196288,
+      "samples": 16
+    }
+  },
+  "errors": [],
+  "failedRequests": [],
+  "boundary": "Painting covers the whole scene in material layers after temporal antialiasing and replaces the final resolve; GPU timings are from 16 timestamped passes at 960x600. Excludes simulation and presentation."
+}
