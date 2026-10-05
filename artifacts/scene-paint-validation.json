@@ -1,5 +1,5 @@
 {
-  "sourceSha256": "642fe82d474dbae6db611e900c2b3efba09de610c0f1805ac102fb38c512d80e",
+  "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
   "checks": [
     "Geometry identifies all visible material groups; default effect is off",
     "Painting changes sky, water, soil, trunks, rocks and all vegetation; zero strength restores exact original pixels",
@@ -296,28 +296,28 @@
   ],
   "gpuKernels": {
     "tracePaths": {
-      "medianMs": 35.432832,
-      "p95Ms": 38.5064,
+      "medianMs": 28.892512,
+      "p95Ms": 32.326944,
       "samples": 16
     },
     "accumulate": {
-      "medianMs": 0.065216,
-      "p95Ms": 0.06752,
+      "medianMs": 0.06192,
+      "p95Ms": 0.064,
       "samples": 16
     },
     "filterImage step 1": {
-      "medianMs": 1.699712,
-      "p95Ms": 2.443744,
+      "medianMs": 1.698752,
+      "p95Ms": 2.046496,
       "samples": 16
     },
     "filterImage step 2": {
-      "medianMs": 1.585824,
-      "p95Ms": 2.32656,
+      "medianMs": 1.592416,
+      "p95Ms": 1.975232,
       "samples": 16
     },
     "paintScene": {
-      "medianMs": 0.190272,
-      "p95Ms": 0.196288,
+      "medianMs": 0.192064,
+      "p95Ms": 0.374272,
       "samples": 16
     }
   },

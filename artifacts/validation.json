@@ -21,7 +21,7 @@
     "Reload and menu preserve progress; still view, quality selection and PNG export work through the UI",
     "No page errors, GPU validation errors, or failed HTTP assets"
   ],
-  "sourceSha256": "642fe82d474dbae6db611e900c2b3efba09de610c0f1805ac102fb38c512d80e",
+  "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
   "geometry": {
     "hash": "0b97270de5eede53f9f50fef584a7a02024556bd1fa4959fba8cf5e84fcbdeb6",
     "finite": true,
@@ -128,53 +128,53 @@
   },
   "stillCache": {
     "before": {
-      "tracedFrames": 680,
+      "tracedFrames": 700,
       "reusedFrames": 0,
       "terrainBakes": 5,
       "materialBakes": 1,
       "geometryBakes": 8,
       "rockBakes": 8,
-      "motionUpdates": 22,
-      "resolvePasses": 680,
+      "motionUpdates": 42,
+      "resolvePasses": 700,
       "paintPasses": 0,
       "samples": 128,
       "limit": 128
     },
     "after": {
-      "tracedFrames": 680,
+      "tracedFrames": 700,
       "reusedFrames": 12,
       "terrainBakes": 5,
       "materialBakes": 1,
       "geometryBakes": 8,
       "rockBakes": 8,
-      "motionUpdates": 22,
-      "resolvePasses": 680,
+      "motionUpdates": 42,
+      "resolvePasses": 700,
       "paintPasses": 0,
       "samples": 128,
       "limit": 128
     },
     "exposed": {
-      "tracedFrames": 680,
+      "tracedFrames": 700,
       "reusedFrames": 13,
       "terrainBakes": 5,
       "materialBakes": 1,
       "geometryBakes": 8,
       "rockBakes": 8,
-      "motionUpdates": 22,
-      "resolvePasses": 681,
+      "motionUpdates": 42,
+      "resolvePasses": 701,
       "paintPasses": 0,
       "samples": 128,
       "limit": 128
     },
     "relit": {
-      "tracedFrames": 681,
+      "tracedFrames": 701,
       "reusedFrames": 13,
       "terrainBakes": 5,
       "materialBakes": 1,
       "geometryBakes": 8,
       "rockBakes": 8,
-      "motionUpdates": 22,
-      "resolvePasses": 682,
+      "motionUpdates": 42,
+      "resolvePasses": 702,
       "paintPasses": 0,
       "samples": 1,
       "limit": 128
@@ -182,14 +182,14 @@
     "identical": true,
     "exposureChanged": true,
     "idleTimes": [
-      0.025000035762786865,
-      0,
-      0,
-      0,
+      0.029999971389770508,
       0,
       0,
       0.004999995231628418,
       0,
+      0.004999995231628418,
+      0,
+      0.004999995231628418,
       0,
       0,
       0.004999995231628418,
@@ -198,24 +198,24 @@
   },
   "timings": {
     "768": {
-      "medianMs": 44.99000000953674,
-      "p95Ms": 55.060000002384186,
+      "medianMs": 21.625,
+      "p95Ms": 23.759999990463257,
       "samples": 20
     },
     "960": {
-      "medianMs": 63.08499997854233,
-      "p95Ms": 76.09499996900558,
+      "medianMs": 32.49000000953674,
+      "p95Ms": 33.5349999666214,
       "samples": 20
     },
     "1280": {
-      "medianMs": 113.61500000953674,
-      "p95Ms": 129.38999998569489,
+      "medianMs": 52.22499990463257,
+      "p95Ms": 54.549999952316284,
       "samples": 20
     },
     "live": {
-      "medianMs": 76.70999997854233,
-      "p95Ms": 85.2150000333786,
-      "samples": 12
+      "medianMs": 30.774999976158142,
+      "p95Ms": 32.25,
+      "samples": 32
     }
   },
   "timingBoundary": "Headless Edge on the reported adapter. Resolution timings include GPU submission through queue completion and exclude simulation, requestAnimationFrame and compositor. Live timing includes simulation and command completion but excludes requestAnimationFrame idle gaps.",
@@ -273,12 +273,12 @@
     "runtime": {
       "pipelineCompiles": 20,
       "pipelineCacheHits": 0,
-      "bindGroupsCreated": 6079,
-      "submissions": 2317,
-      "dispatches": 7591,
-      "uniformBytesUploaded": 1401216,
+      "bindGroupsCreated": 6219,
+      "submissions": 2357,
+      "dispatches": 7731,
+      "uniformBytesUploaded": 1427776,
       "dataBytesUploaded": 1152,
-      "readbackBytes": 857816272
+      "readbackBytes": 857818832
     }
   },
   "branchSummary": {
@@ -323,12 +323,12 @@
     "runtime": {
       "pipelineCompiles": 20,
       "pipelineCacheHits": 0,
-      "bindGroupsCreated": 6993,
-      "submissions": 2501,
-      "dispatches": 8694,
-      "uniformBytesUploaded": 1638464,
+      "bindGroupsCreated": 7133,
+      "submissions": 2541,
+      "dispatches": 8834,
+      "uniformBytesUploaded": 1665024,
       "dataBytesUploaded": 1280,
-      "readbackBytes": 911065296
+      "readbackBytes": 911067856
     }
   },
   "night": {
@@ -373,17 +373,23 @@
     "runtime": {
       "pipelineCompiles": 20,
       "pipelineCacheHits": 0,
-      "bindGroupsCreated": 6481,
-      "submissions": 2399,
-      "dispatches": 7993,
-      "uniformBytesUploaded": 1484480,
+      "bindGroupsCreated": 6621,
+      "submissions": 2439,
+      "dispatches": 8133,
+      "uniformBytesUploaded": 1511040,
       "dataBytesUploaded": 1152,
-      "readbackBytes": 874200656
+      "readbackBytes": 874203216
     }
   },
   "errors": [],
   "failedRequests": [],
   "adapter": {
+    "backend": "webgpu",
+    "native": {
+      "available": null,
+      "permission": "not-queried",
+      "reason": "webgpu-requested"
+    },
     "vendor": "nvidia",
     "architecture": "blackwell",
     "device": "",
@@ -391,10 +397,10 @@
     "features": [
       "core-features-and-limits",
       "subgroup-size-control",
-      "shader-f16",
-      "float32-filterable",
       "subgroups",
-      "timestamp-query"
+      "float32-filterable",
+      "timestamp-query",
+      "shader-f16"
     ],
     "timestampQuery": true,
     "limits": {
@@ -408,32 +414,32 @@
       "width": 1920,
       "height": 1200,
       "passes": 96,
-      "medianMs": 285.6799999475479,
-      "p95Ms": 310.2849999666214,
+      "medianMs": 112.92000007629395,
+      "p95Ms": 115.38999998569489,
       "samples": 96
     },
     "sunset": {
       "width": 1280,
       "height": 800,
       "passes": 48,
-      "medianMs": 140.10000002384186,
-      "p95Ms": 164.95999997854233,
+      "medianMs": 60.81000006198883,
+      "p95Ms": 62.330000042915344,
       "samples": 48
     },
     "night": {
       "width": 1280,
       "height": 800,
       "passes": 32,
-      "medianMs": 122.16000002622604,
-      "p95Ms": 130.5349999666214,
+      "medianMs": 51.22000002861023,
+      "p95Ms": 52.59999990463257,
       "samples": 32
     },
     "firstBranch": {
       "width": 1920,
       "height": 1200,
       "passes": 96,
-      "medianMs": 244.46999996900558,
-      "p95Ms": 270.86500000953674,
+      "medianMs": 108.17500007152557,
+      "p95Ms": 110.13499999046326,
       "samples": 96
     }
   }

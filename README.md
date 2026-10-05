@@ -12,6 +12,20 @@ Double-click `START.bat`, or run `npm start` and open **http://127.0.0.1:4327**.
 
 The local server listens only on `127.0.0.1`. Opening `index.html` with a file URL cannot run WebGPU.
 
+## Native CUDA (optional)
+
+Open the game in [ChromiumRTXCuda](https://github.com/SamG-Coder/ChromiumRTXCuda), then choose **View settings → Enable native CUDA** and allow the browser's native GPU permission. Use a current Windows build with a compatible NVIDIA GPU/driver. Ordinary browsers keep WebGPU and explain why the native button is unavailable. Startup always uses WebGPU; native access is requested only by this button.
+
+The native mode uses upstream WebCUDA's `enableNativeInterop`, shared buffers and native kernel batches. Scene generation, game simulation, material baking, ray traversal, path tracing, temporal filtering and layered oil painting all run from the same CUDA sources through NVRTC. GPU sorting and canvas presentation remain WebGPU, using shared allocations and GPU fences; frame pixels are not downloaded to JavaScript for display. Small game-state readbacks and explicit image export/diagnostics still read back data.
+
+The button changes to **Use WebGPU** while native CUDA is active. Switching rebuilds backend resources, keeps your journey position, location, time and painting settings, and resets image accumulation. The previous scene stays available until the replacement has rendered successfully. A denied permission or failed initialization leaves the existing backend running. Native mode is not persisted across reloads.
+
+Artifacts contain both WGSL and CUDA. The build converts this scene's numeric macro constants into native `constexpr` declarations because the browser disallows preprocessing, and prepends `src/native-vectors.cuh` to match WebCuda's component-wise vector arithmetic. CUDA fast math can produce small numerical differences; identical pixels across backends are not promised. This mode does not enable OptiX, RTX traversal or DLSS.
+
+The browser's native GPU helper is experimental and not yet a hardened sandbox; grant native access only to sites you trust. See the [browser API and requirements](https://github.com/SamG-Coder/ChromiumRTXCuda/blob/cuda-rtx/rtx_cuda/README.md).
+
+With the local server running, `npm run test:native` exercises the real settings button, permission denial, native rendering, movement, resizing, export, state preservation and return to WebGPU. Set `RTXCUDA_CHROME` to the fork's `chrome.exe` path; the local default is `D:/ChromiumRTXCuda/src/out/RTXCuda/chrome.exe`. Automated permission decisions use DevTools, not a simulated JavaScript CUDA API or a claim that a human accepted the prompt. Results go to `artifacts/native-cuda-validation.json`.
+
 ## Play
 
 | Input | Action |
@@ -82,7 +96,7 @@ This is a compute path tracer through CUDA-to-WGSL-to-WebGPU. It does not use na
 
 The original game is read-only source material; this project does not modify it. `references/` contains comparison images and is not loaded by the game.
 
-The vendored compiler/runtime comes from `D:/cuda-webshader`, revision `ef46ff1bf02a306bad94ddc18286d25d3d902c14`. Its MIT license is retained in `vendor/cuda-webshader/LICENSE`. Only its runtime dependency graph and compiler are bundled; its unrelated Three.js bridge and sample tools are omitted.
+The vendored compiler/runtime comes from `D:/cuda-webshader`, revision `d6b9de81a68c1ced62144d325fdc701dd368b6ea`. Its MIT license is retained in `vendor/cuda-webshader/LICENSE`. Its native transport retains the [ChromiumRTXCuda BSD-3-Clause license](vendor/cuda-webshader/runtime/native-cuda/LICENSE). Only its runtime dependency graph and compiler are bundled; its unrelated Three.js bridge and sample tools are omitted.
 
 ## Build and verification
 

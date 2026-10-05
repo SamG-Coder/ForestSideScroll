@@ -1,5 +1,6 @@
 * text=auto
 *.cu text eol=lf
+*.cuh text eol=lf
 *.js text eol=lf
 *.mjs text eol=lf
 *.json text eol=lf

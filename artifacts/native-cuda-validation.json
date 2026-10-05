@@ -1,0 +1,186 @@
+{
+  "executablePath": "D:/ChromiumRTXCuda/src/out/RTXCuda/chrome.exe",
+  "permissionDecisions": "DevTools-controlled; real native browser enforcement",
+  "checks": [
+    "Permission denial keeps the WebGPU scene usable",
+    "A real native compile failure disposes the candidate and preserves the WebGPU scene",
+    "Real settings button activates native CUDA and preserves journey, location and painting settings",
+    "Native forest generation, shared WebGPU sort, BVH, materials and painted path tracing produce valid GPU output",
+    "Native movement, target resizing and painted PNG export work",
+    "Switching back to WebGPU preserves state and produces valid frames",
+    "Native CUDA can be enabled again after disposal",
+    "Revoked native permission can recover to WebGPU using preserved state",
+    "No browser, GPU or asset errors"
+  ],
+  "browserVersion": "157.0.8086.0",
+  "manifest": {
+    "sourceSha256": "7b3e05c6e09fd72681f2ece40e1ba52f7feb3cd04cc37399e7677a9ca3f90b28",
+    "compilerRevision": "d6b9de81a68c1ced62144d325fdc701dd368b6ea"
+  },
+  "backend": {
+    "name": "native-cuda",
+    "native": {
+      "arbitraryTextureImport": false,
+      "bufferUsageMask": 444,
+      "gpuBufferToTexture": true,
+      "maxBlocksPerLaunch": 9007199254740991,
+      "maxGridDimensions": [
+        2147483647,
+        65535,
+        65535
+      ],
+      "maxNativeOwnedBytes": 67108864,
+      "maxResourceBytes": 268435456,
+      "maxResources": 256,
+      "maxSharedBytes": 2147483648,
+      "maxTextureDimension2D": 8192,
+      "mipLevelCount": 1,
+      "nativeOwnedBuffers": true,
+      "optix": {
+        "accelerationStructureUpdate": true,
+        "apiVersion": 90100,
+        "available": true,
+        "backend": "cuda-optix",
+        "callablePrograms": false,
+        "customPrimitives": false,
+        "geometry": "non-indexed-float3-triangles",
+        "gpuGeometry": true,
+        "instances": false,
+        "maxLaunchPixels": 16777216,
+        "maxPayloadValues": 32,
+        "maxPipelines": 32,
+        "maxSceneBytes": 536870912,
+        "maxScenes": 32,
+        "maxTraceDepth": 8,
+        "maxVertices": 3145728,
+        "motionBlur": false,
+        "rtCoreVersion": 40,
+        "sharedBuffers": true,
+        "sharedSurfaces": true
+      },
+      "reason": "",
+      "samePhysicalGpu": true,
+      "sampleCount": 1,
+      "sharedBuffers": true,
+      "sharedTextures": true,
+      "synchronization": "d3d12-fence-cuda-external-semaphore",
+      "textureArrayLayers": 1,
+      "textureDimension": "2d",
+      "textureFormats": [
+        "rgba8unorm",
+        "rgba16float",
+        "rgba32float",
+        "r32float"
+      ],
+      "textureUsageMask": 31,
+      "version": 1,
+      "canvasPresentation": true,
+      "permission": "granted",
+      "available": true
+    },
+    "stats": {
+      "dispatches": 69,
+      "submissions": 7,
+      "sharedBytes": 308671272
+    }
+  },
+  "native": {
+    "summary": {
+      "finite": true,
+      "min": 0,
+      "max": 8.502274513244629,
+      "mean": 0.07041253127399433,
+      "state": [
+        18,
+        1.900221586227417,
+        19.81999969482422,
+        0,
+        0,
+        0,
+        1,
+        1,
+        3,
+        1,
+        17.600000381469727,
+        -4,
+        19.81999969482422,
+        -4,
+        19.81999969482422,
+        0,
+        0,
+        0,
+        0,
+        76,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "runtime": {
+        "pipelineCompiles": 3,
+        "pipelineCacheHits": 0,
+        "bindGroupsCreated": 6,
+        "submissions": 2,
+        "dispatches": 384,
+        "uniformBytesUploaded": 97824,
+        "dataBytesUploaded": 128,
+        "readbackBytes": 256289832
+      }
+    },
+    "geometry": {
+      "hash": "8b57a5781f641a54fa55e9e25ead272d6112372c1feab0abc366a4157f9deda6",
+      "finite": true,
+      "invalidRadii": 0,
+      "invalidBounds": 0,
+      "objects": 524288
+    },
+    "bank": {
+      "finite": true,
+      "invalidOrder": 0,
+      "unsorted": 0,
+      "ferns": 30720,
+      "rocks": 2048,
+      "actorMaterials": 0,
+      "terrainSize": [
+        4096,
+        2048
+      ],
+      "materialSize": [
+        2048,
+        2048
+      ],
+      "mipLevels": 12,
+      "depthMin": 0.0018274670839309726,
+      "depthMax": 1.3848114347457885,
+      "shallowSamples": 55,
+      "deepSamples": 18,
+      "terrainHash": "0919e52adcf6aefb70d94cde2eaaa500c0efe4fdbbb0dc441d4ec61b2821c682",
+      "atlasHash": "1822dd73940274941f5d1a02363931c145b5c63a1cbb47c21ef69cde148b4f9a"
+    },
+    "rocks": {
+      "forms": [
+        531,
+        517,
+        490,
+        510
+      ],
+      "planesPerRock": 104,
+      "invalidPlanes": 0,
+      "invalidTransforms": 0,
+      "maxAxisExtent": 0.9519402980804443,
+      "axisPlanes": 12288,
+      "minAspect": 0.8770396371750644,
+      "maxAspect": 8.899231573237525,
+      "cacheBytes": 36962304
+    }
+  },
+  "errors": []
+}

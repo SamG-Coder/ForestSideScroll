@@ -32,6 +32,11 @@
   <div id="photo-banner" hidden>STILL VIEW <span>The image refines, then holds</span><button id="resume">Resume exploring</button></div>
   <aside id="settings" hidden>
     <div class="panel-title"><h2>View settings</h2><button id="close-settings" aria-label="Close settings">×</button></div>
+    <div class="backend-control">
+      <button id="native-cuda" class="panel-button" aria-pressed="false" aria-describedby="backend-status" disabled>Enable native CUDA</button>
+      <p id="backend-status" class="setting-note" role="status">Checking native CUDA availability…</p>
+      <a class="backend-link" href="https://github.com/SamG-Coder/ChromiumRTXCuda" target="_blank" rel="noopener">About ChromiumRTXCuda ↗</a>
+    </div>
     <label>Image quality<select id="quality"><option value="768">Performance · 768 px</option><option value="960" selected>Balanced · 960 px</option><option value="1280">High · 1280 px</option><option value="1920">Ultra · 1920 px</option></select></label>
     <label>Light bounces<select id="bounces"><option value="2">2 · Faster</option><option value="4" selected>4 · Detailed light</option><option value="6">6 · Deeper reflections</option></select></label>
     <label>Time of day<select id="hour"><option value="9">Morning</option><option value="12">Midday</option><option value="15.4" selected>Late afternoon</option><option value="17.6">Sunset</option><option value="21">Night</option></select></label>

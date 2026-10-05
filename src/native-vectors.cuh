@@ -1,0 +1,65 @@
+// Native CUDA operators matching WebCuda component-wise vector arithmetic.
+// NVRTC supplies CUDA vector types and make_floatN; no external headers needed.
+__device__ inline float2 operator+(float2 a,float2 b){return make_float2(a.x+b.x,a.y+b.y);}
+__device__ inline float2 operator+(float2 a,float b){return make_float2(a.x+b,a.y+b);}
+__device__ inline float2 operator+(float a,float2 b){return make_float2(a+b.x,a+b.y);}
+__device__ inline float2& operator+=(float2& a,float2 b){a=a+b;return a;}
+__device__ inline float2& operator+=(float2& a,float b){a=a+b;return a;}
+__device__ inline float2 operator-(float2 a,float2 b){return make_float2(a.x-b.x,a.y-b.y);}
+__device__ inline float2 operator-(float2 a,float b){return make_float2(a.x-b,a.y-b);}
+__device__ inline float2 operator-(float a,float2 b){return make_float2(a-b.x,a-b.y);}
+__device__ inline float2& operator-=(float2& a,float2 b){a=a-b;return a;}
+__device__ inline float2& operator-=(float2& a,float b){a=a-b;return a;}
+__device__ inline float2 operator*(float2 a,float2 b){return make_float2(a.x*b.x,a.y*b.y);}
+__device__ inline float2 operator*(float2 a,float b){return make_float2(a.x*b,a.y*b);}
+__device__ inline float2 operator*(float a,float2 b){return make_float2(a*b.x,a*b.y);}
+__device__ inline float2& operator*=(float2& a,float2 b){a=a*b;return a;}
+__device__ inline float2& operator*=(float2& a,float b){a=a*b;return a;}
+__device__ inline float2 operator/(float2 a,float2 b){return make_float2(a.x/b.x,a.y/b.y);}
+__device__ inline float2 operator/(float2 a,float b){return make_float2(a.x/b,a.y/b);}
+__device__ inline float2 operator/(float a,float2 b){return make_float2(a/b.x,a/b.y);}
+__device__ inline float2& operator/=(float2& a,float2 b){a=a/b;return a;}
+__device__ inline float2& operator/=(float2& a,float b){a=a/b;return a;}
+__device__ inline float2 operator-(float2 a){return make_float2(-a.x,-a.y);}
+__device__ inline float3 operator+(float3 a,float3 b){return make_float3(a.x+b.x,a.y+b.y,a.z+b.z);}
+__device__ inline float3 operator+(float3 a,float b){return make_float3(a.x+b,a.y+b,a.z+b);}
+__device__ inline float3 operator+(float a,float3 b){return make_float3(a+b.x,a+b.y,a+b.z);}
+__device__ inline float3& operator+=(float3& a,float3 b){a=a+b;return a;}
+__device__ inline float3& operator+=(float3& a,float b){a=a+b;return a;}
+__device__ inline float3 operator-(float3 a,float3 b){return make_float3(a.x-b.x,a.y-b.y,a.z-b.z);}
+__device__ inline float3 operator-(float3 a,float b){return make_float3(a.x-b,a.y-b,a.z-b);}
+__device__ inline float3 operator-(float a,float3 b){return make_float3(a-b.x,a-b.y,a-b.z);}
+__device__ inline float3& operator-=(float3& a,float3 b){a=a-b;return a;}
+__device__ inline float3& operator-=(float3& a,float b){a=a-b;return a;}
+__device__ inline float3 operator*(float3 a,float3 b){return make_float3(a.x*b.x,a.y*b.y,a.z*b.z);}
+__device__ inline float3 operator*(float3 a,float b){return make_float3(a.x*b,a.y*b,a.z*b);}
+__device__ inline float3 operator*(float a,float3 b){return make_float3(a*b.x,a*b.y,a*b.z);}
+__device__ inline float3& operator*=(float3& a,float3 b){a=a*b;return a;}
+__device__ inline float3& operator*=(float3& a,float b){a=a*b;return a;}
+__device__ inline float3 operator/(float3 a,float3 b){return make_float3(a.x/b.x,a.y/b.y,a.z/b.z);}
+__device__ inline float3 operator/(float3 a,float b){return make_float3(a.x/b,a.y/b,a.z/b);}
+__device__ inline float3 operator/(float a,float3 b){return make_float3(a/b.x,a/b.y,a/b.z);}
+__device__ inline float3& operator/=(float3& a,float3 b){a=a/b;return a;}
+__device__ inline float3& operator/=(float3& a,float b){a=a/b;return a;}
+__device__ inline float3 operator-(float3 a){return make_float3(-a.x,-a.y,-a.z);}
+__device__ inline float4 operator+(float4 a,float4 b){return make_float4(a.x+b.x,a.y+b.y,a.z+b.z,a.w+b.w);}
+__device__ inline float4 operator+(float4 a,float b){return make_float4(a.x+b,a.y+b,a.z+b,a.w+b);}
+__device__ inline float4 operator+(float a,float4 b){return make_float4(a+b.x,a+b.y,a+b.z,a+b.w);}
+__device__ inline float4& operator+=(float4& a,float4 b){a=a+b;return a;}
+__device__ inline float4& operator+=(float4& a,float b){a=a+b;return a;}
+__device__ inline float4 operator-(float4 a,float4 b){return make_float4(a.x-b.x,a.y-b.y,a.z-b.z,a.w-b.w);}
+__device__ inline float4 operator-(float4 a,float b){return make_float4(a.x-b,a.y-b,a.z-b,a.w-b);}
+__device__ inline float4 operator-(float a,float4 b){return make_float4(a-b.x,a-b.y,a-b.z,a-b.w);}
+__device__ inline float4& operator-=(float4& a,float4 b){a=a-b;return a;}
+__device__ inline float4& operator-=(float4& a,float b){a=a-b;return a;}
+__device__ inline float4 operator*(float4 a,float4 b){return make_float4(a.x*b.x,a.y*b.y,a.z*b.z,a.w*b.w);}
+__device__ inline float4 operator*(float4 a,float b){return make_float4(a.x*b,a.y*b,a.z*b,a.w*b);}
+__device__ inline float4 operator*(float a,float4 b){return make_float4(a*b.x,a*b.y,a*b.z,a*b.w);}
+__device__ inline float4& operator*=(float4& a,float4 b){a=a*b;return a;}
+__device__ inline float4& operator*=(float4& a,float b){a=a*b;return a;}
+__device__ inline float4 operator/(float4 a,float4 b){return make_float4(a.x/b.x,a.y/b.y,a.z/b.z,a.w/b.w);}
+__device__ inline float4 operator/(float4 a,float b){return make_float4(a.x/b,a.y/b,a.z/b,a.w/b);}
+__device__ inline float4 operator/(float a,float4 b){return make_float4(a/b.x,a/b.y,a/b.z,a/b.w);}
+__device__ inline float4& operator/=(float4& a,float4 b){a=a/b;return a;}
+__device__ inline float4& operator/=(float4& a,float b){a=a/b;return a;}
+__device__ inline float4 operator-(float4 a){return make_float4(-a.x,-a.y,-a.z,-a.w);}

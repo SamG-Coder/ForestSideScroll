@@ -1,8 +1,8 @@
 {
   "upstream": "https://github.com/SamG-Coder/cuda-webshader",
   "sourceCheckout": "D:/cuda-webshader",
-  "revision": "ef46ff1bf02a306bad94ddc18286d25d3d902c14",
+  "revision": "d6b9de81a68c1ced62144d325fdc701dd368b6ea",
   "compilerVersion": "0.1.1",
-  "scope": "Compiler modules and the runtime.js dependency graph, copied without source modifications. Unused sample modules and Three.js bridge omitted.",
+  "scope": "Compiler modules and runtime dependency graph, copied without source modifications. Includes ChromiumRTXCuda native interoperability and its BSD-3-Clause transport notice.",
   "license": "MIT; see LICENSE"
 }

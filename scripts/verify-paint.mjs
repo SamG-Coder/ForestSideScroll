@@ -13,6 +13,7 @@ page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()
 const check=name=>{checks.push(name);console.log('PASS',name);};
 try{
   await page.goto('http://127.0.0.1:4327/');await page.waitForFunction(()=>forestDiagnostics?.ready||forestDiagnostics?.errors.length,{},{timeout:240000});assert.deepEqual(await page.evaluate(()=>forestDiagnostics.errors),[]);
+  assert.equal(await page.evaluate(()=>forestTest.backend.name),'webgpu');assert(await page.locator('#native-cuda').isDisabled());
   await page.evaluate(()=>forestTest.start(2));
   assert.equal(await page.evaluate(()=>forestTest.options.oilPaint),false);assert(await page.locator('#paint-strength').isDisabled());
   const defaultDepths=await page.evaluate(()=>forestTest.options.paintDepths);

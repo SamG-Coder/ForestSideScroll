@@ -1,9 +1,60 @@
 import {ForestRenderer,OBJECT_COUNT,PAINT_DEPTHS} from './gpu.js';
+import {GpuRuntime} from '../vendor/cuda-webshader/runtime/runtime.js';
 const $=id=>document.getElementById(id);
 const diag=window.forestDiagnostics={ready:false,errors:[],frames:0,renderer:'CUDA → WGSL → WebGPU',proceduralPrimitives:OBJECT_COUNT,frameTimes:[]};
 const keys=new Set();const options={width:960,bounces:4,exposure:1.25,clock:true,oilPaint:false,paintStrength:0.75,paintDepths:{...PAINT_DEPTHS}};
 let renderer,busy=false,testing=false,menu=true,still=false,pendingMode=null,pendingHour=-1,interact=false,resize=true,last=performance.now(),lastHud=0;
 let gameState=null,continueState=null,framesSinceReset=0;
+let switching=false,nativeAvailable=false,animationStopped=false;
+function backendStatus(message){
+  const native=renderer?.backend==='native-cuda';
+  $('native-cuda').textContent=native?'Use WebGPU':'Enable native CUDA';
+  $('native-cuda').setAttribute('aria-pressed',String(native));
+  $('native-cuda').disabled=switching||!renderer||(!native&&!nativeAvailable);
+  $('backend-status').textContent=message||(native?'Native CUDA active.':'WebGPU active.');
+  diag.backend=renderer?.backend||'webgpu';
+  diag.renderer=native?'Native CUDA with WebGPU presentation':'CUDA to WGSL to WebGPU';
+  if(renderer){diag.adapter=renderer.runtime.describe();diag.native=renderer.runtime.nativeInteropStatus||null;}
+}
+$('native-cuda').onclick=async()=>{
+  if(switching||!renderer)return;
+  const enable=renderer.backend!=='native-cuda',wasTesting=testing;
+  switching=true;backendStatus(enable?'Requesting native GPU access…':'Preparing WebGPU…');
+  let candidate,activeCandidate=false,candidateError=null,switched=false;
+  try{
+    // Request directly from the click, before waiting for rendering, to retain user activation.
+    if(enable&&await GpuRuntime.requestPermission()!=='granted')throw Error('Native GPU permission was not granted. WebGPU remains active.');
+    testing=true;await idle();keys.clear();$('settings').inert=true;
+    const previous=renderer;
+    let state;
+    try{state=!enable&&await navigator.cuda.queryPermission()!=='granted'?[...previous.cachedState]:await previous.readState();}catch(error){
+      if(enable||!previous.cachedState)throw error;
+      state=[...previous.cachedState];
+    }
+    $('loading').hidden=false;
+    const canvas=$('scene').cloneNode(false);
+    candidate=await ForestRenderer.create(canvas,text=>{$('loading-text').textContent=text;},error=>{candidateError=error;if(activeCandidate)fail(error);},{native:enable});
+    candidate.seed=previous.seed;
+    if(candidate.seed!==5359585)await candidate.generate(candidate.location);
+    await candidate.writeState(state);
+    await candidate.resize(options.width,innerWidth/innerHeight);
+    await candidate.render({...options,frozen:menu||still});
+    if(candidateError)throw candidateError;
+    $('scene').replaceWith(canvas);renderer=candidate;candidate=null;activeCandidate=true;
+    gameState=state;resize=false;diag.frameTimes=[];diag.cache={...renderer.counters};
+    diag.width=renderer.width;diag.height=renderer.height;framesSinceReset=renderer.samples;
+    await previous.dispose().catch(error=>{diag.cleanupError=String(error.message);});switched=true;$('error').hidden=true;delete diag.backendSwitchError;backendStatus();
+  }catch(error){
+    if(candidate)await candidate.dispose().catch(()=>{});
+    backendStatus(`Could not switch: ${String(error.message||error).split('\n')[0].slice(0,220)}`);
+    diag.backendSwitchError=String(error.message);
+  }finally{
+    switching=false;testing=wasTesting;last=performance.now();$('loading').hidden=true;$('settings').inert=false;
+    if(switched&&animationStopped){animationStopped=false;requestAnimationFrame(frame);}
+    $('native-cuda').disabled=!nativeAvailable&&renderer.backend!=='native-cuda';
+  }
+};
+GpuRuntime.SupportsNativeCuda().then(available=>{nativeAvailable=available;backendStatus(available?'WebGPU active. Native CUDA is available.':'Native CUDA requires ChromiumRTXCuda on Windows with an NVIDIA GPU.');});
 function fail(error){const message=String(error?.message||error);diag.errors.push(message);$('error').hidden=false;$('error').textContent=`The river could not open.\n${message}`;$('loading').hidden=true;console.error(error);}
 function setStill(value){still=value;$('photo-banner').hidden=!still||menu;$('photo').firstChild.textContent=still?'Resume exploring ':'Pause for a still view ';renderer.reset=1;framesSinceReset=0;}
 function showMenu(value){if(value&&gameState?.[9]===1){saveProgress();continueState=[...gameState];$('play').firstChild.textContent='Continue journey ';}menu=value;$('menu').hidden=!value;$('hud').hidden=value;$('photo-banner').hidden=value||!still;$('interact').hidden=true;keys.clear();renderer.reset=1;}
@@ -29,7 +80,7 @@ $('photo').onclick=()=>setStill(!still);$('resume').onclick=()=>setStill(false);
 $('capture').onclick=async()=>{try{await idle();testing=true;await renderer.render({...options,frozen:menu||still});const blob=await renderer.snapshot();const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='secret-river.png';a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);}catch(e){fail(e);}finally{testing=false;}};
 function relevantTarget(event){return /^(INPUT|SELECT|BUTTON)$/.test(event.target?.tagName);}
 window.addEventListener('keydown',e=>{
-  if(relevantTarget(e))return;
+  if(switching||relevantTarget(e))return;
   if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Space'].includes(e.code))e.preventDefault();
   keys.add(e.code);if(e.repeat)return;
   if(e.code==='Escape'){if(!$('settings').hidden)$('settings').hidden=true;else showMenu(!menu);}
@@ -61,7 +112,7 @@ function hud(now){
 }
 async function idle(){while(busy)await new Promise(resolve=>setTimeout(resolve,10));}
 async function frame(now){
-  if(testing||document.hidden){last=now;requestAnimationFrame(frame);return;}
+  if(testing||switching||document.hidden){last=now;requestAnimationFrame(frame);return;}
   busy=true;const started=performance.now();
   try{
     if(pendingMode!==null){const mode=pendingMode;pendingMode=null;if(mode===1&&continueState){await renderer.writeState(continueState);gameState=continueState;continueState=null;}else gameState=await renderer.init(mode);showMenu(false);setStill(false);$('scene').focus();}
@@ -76,12 +127,12 @@ async function frame(now){
     framesSinceReset=renderer.samples;diag.cache={...renderer.counters};diag.frames++;diag.state=gameState;diag.width=renderer.width;diag.height=renderer.height;diag.location=renderer.location;diag.accumulationPasses=framesSinceReset;if(traced)diag.frameTimes.push(performance.now()-started);if(diag.frameTimes.length>180)diag.frameTimes.shift();
     if(diag.frames%120===0||oldLocation!==renderer.location)saveProgress();hud(now);
     if(!diag.ready){diag.ready=true;$('loading').hidden=true;$('play').disabled=false;$('demo').disabled=false;}
-  }catch(error){fail(error);busy=false;return;}
+  }catch(error){animationStopped=true;fail(error);busy=false;return;}
   busy=false;requestAnimationFrame(frame);
 }
 try{
   renderer=await ForestRenderer.create($('scene'),text=>{$('loading-text').textContent=text;},fail);
-  diag.adapter=renderer.runtime.describe();diag.sourceSha256=renderer.manifest.sourceSha256;loadProgress();
+  diag.adapter=renderer.runtime.describe();diag.sourceSha256=renderer.manifest.sourceSha256;loadProgress();backendStatus(nativeAvailable?undefined:'Native CUDA requires ChromiumRTXCuda on Windows with an NVIDIA GPU.');
   // Diagnostic controls operate the actual GPU kernels and buffers used by play.
   window.forestTest={
     async hold(){testing=true;await idle();return renderer.readState();},
@@ -91,7 +142,7 @@ try{
     async setState(values){testing=true;await idle();await renderer.writeState(values);gameState=await renderer.readState();return gameState;},
     async render(samples=1,settings={}){testing=true;await idle();if(settings.width)await renderer.resize(settings.width,innerWidth/innerHeight);if(settings.hour!==undefined)gameState=await renderer.simulate({paused:1,setHour:settings.hour});if(settings.reset)renderer.reset=1;if(settings.frame!==undefined)renderer.frame=settings.frame;const times=[];for(let i=0;i<samples;i++){gameState=await renderer.simulate(settings.input||{paused:1});const t=performance.now();await renderer.render({...options,frozen:true,...settings});times.push(performance.now()-t);}diag.state=gameState;framesSinceReset=renderer.samples;diag.cache={...renderer.counters};diag.width=renderer.width;diag.height=renderer.height;hud(performance.now()+1000);return {width:renderer.width,height:renderer.height,frames:renderer.frame,times,cache:{...renderer.counters},samples:renderer.samples};},
     async pixelSnapshot(){await idle();const blob=await renderer.snapshot();return Array.from(new Uint8Array(await blob.arrayBuffer()));},
-    async setTraceVariant(artifact){testing=true;await idle();if(artifact.name!=='tracePaths')throw Error('Expected a tracePaths diagnostic variant');renderer.kernels.tracePaths=await renderer.runtime.kernel(artifact);renderer.reset=1;},
+    async setTraceVariant(artifact){testing=true;await idle();if(artifact.name!=='tracePaths')throw Error('Expected a tracePaths diagnostic variant');renderer.kernels.tracePaths=await renderer.compute.kernel(artifact);renderer.reset=1;},
     async lightingStats(){await idle();const r=await renderer.runtime.read(renderer.raw);const g=await renderer.runtime.read(renderer.guides[1-renderer.ping]);const h=await renderer.runtime.read(renderer.history[1-renderer.ping]);let reused=0,water=0,waterReused=0,maxAge=0;for(let i=0;i<r.length;i+=4){if(r[i+3]<0)reused++;if(g[i+3]===-2){water++;if(r[i+3]<0)waterReused++;}maxAge=Math.max(maxAge,(h[i+3]-Math.floor(h[i+3]))*16);}return {reused,water,waterReused,maxAge,pixels:r.length/4};},
     async rockStats(){
       testing=true;await idle();const objects=await renderer.runtime.read(renderer.objects);const planes=await renderer.runtime.read(renderer.rockPlanes);const transforms=await renderer.runtime.read(renderer.rayGeometry);
@@ -124,6 +175,7 @@ try{
       testing=true;await idle();renderer.frame=317;renderer.reset=1;await renderer.render({...options,bounces,frozen:true});const a=await renderer.runtime.read(renderer.raw);const g=await renderer.runtime.read(renderer.guides[1-renderer.ping]);let water=0,count=0,total=0;for(let i=0;i<a.length;i+=4){const luminance=a[i]*0.2126+a[i+1]*0.7152+a[i+2]*0.0722;total+=luminance;if(g[i+3]===-2){water+=luminance;count++;}}return {mean:total/(a.length/4),waterMean:water/Math.max(1,count),waterPixels:count};
     },
     async save(){await idle();saveProgress();return JSON.parse(localStorage.getItem('secret-river-webcuda-v1'));},
+    get backend(){return {name:renderer.backend,native:renderer.runtime.nativeInteropStatus,stats:renderer.runtime.native?.stats};},
     get cache(){return {...renderer.counters,samples:renderer.samples,limit:renderer.stillLimit};},get manifest(){return renderer.manifest;},get options(){return {...options,paintDepths:{...options.paintDepths}};}
   };
   requestAnimationFrame(frame);

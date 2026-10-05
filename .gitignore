@@ -5,6 +5,7 @@ artifacts/*
 !artifacts/before-jitter.json
 !artifacts/after-jitter.json
 !artifacts/validation.json
+!artifacts/native-cuda-validation.json
 !artifacts/scene-paint-validation.json
 !artifacts/rock-revision-comparison.json
 !artifacts/rock-revision-profile.json

@@ -11,7 +11,8 @@
     "test:paint": "node scripts/verify-paint.mjs",
     "test:temporal": "node scripts/verify-temporal.mjs",
     "check": "node scripts/check.mjs",
-    "build:pages": "npm run build && npm run check && node scripts/package-pages.mjs"
+    "build:pages": "npm run build && npm run check && node scripts/package-pages.mjs",
+    "test:native": "node scripts/verify-native.mjs"
   },
   "engines": {
     "node": ">=20"
